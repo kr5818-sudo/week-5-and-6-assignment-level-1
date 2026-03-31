@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class DynamicSum {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        double[] values = new double[10];
+        double totalSum = 0.0;
+        int index = 0;
+
+        System.out.println("Enter up to 10 numbers (Enter 0 or negative to stop):");
+
+        while (true) {
+            // Constraint check: Max size
+            if (index == 10) {
+                System.out.println("Array limit reached.");
+                break;
+            }
+
+            double entry = input.nextDouble();
+
+            // Exit condition check
+            if (entry <= 0) {
+                break;
+            }
+
+            // Store and accumulate
+            values[index] = entry;
+            totalSum += entry;
+            index++;
+        }
+
+        // Display stored values
+        System.out.print("Stored values: ");
+        for (int i = 0; i < index; i++) {
+            System.out.print(values[i] + " ");
+        }
+        
+        System.out.println("\nTotal Sum: " + totalSum);
+        input.close();
+    }
+}
