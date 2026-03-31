@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class NumberAnalysis {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int[] numbers = new int[5];
+
+        // Input
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.print("Enter number " + (i + 1) + ": ");
+            numbers[i] = input.nextInt();
+        }
+
+        // Analysis
+        for (int i = 0; i < numbers.length; i++) {
+            int num = numbers[i];
+            if (num > 0) {
+                String type = (num % 2 == 0) ? "Positive Even" : "Positive Odd";
+                System.out.println(num + " is " + type);
+            } else if (num < 0) {
+                System.out.println(num + " is Negative");
+            } else {
+                System.out.println(num + " is Zero");
+            }
+        }
+
+        // Comparison of first and last
+        int first = numbers[0];
+        int last = numbers[numbers.length - 1];
+        if (first == last) {
+            System.out.println("First and last elements are equal.");
+        } else if (first > last) {
+            System.out.println("First element is greater than last.");
+        } else {
+            System.out.println("First element is less than last.");
+        }
+        input.close();
+    }
+}
